@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Coin exchange front-end demo">
+  <title>Coin Exchange — Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">◎</div>
+        <div>
+          <strong>Coin Exchange</strong>
+          <span>Front-end demo</span>
+        </div>
+      </div>
+      <div class="demo-pill">DEMO MODE</div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">TOK COINS BALANCE</p>
+          <h1 id="balance">$812,129.27</h1>
+          <p class="subtext"><span class="coin-dot">●</span> 60,000,000 coins available for this demo</p>
+        </div>
+        <div class="balance-card">
+          <span>Demo account</span>
+          <strong>@demo_user</strong>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title">
+          <div>
+            <h2>Exchange Coins</h2>
+            <p>Choose a preset or enter a custom amount.</p>
+          </div>
+          <span class="status">Ready</span>
+        </div>
+
+        <div class="presets">
+          <button class="preset" data-coins="500" data-usd="6.07">
+            <b>🟠 500</b><span>$6.07</span>
+          </button>
+          <button class="preset" data-coins="15000" data-usd="102.04">
+            <b>🟠 15,000</b><span>$102.04</span>
+          </button>
+          <button class="preset" data-coins="50000" data-usd="605.00">
+            <b>🟠 50,000</b><span>$605.00</span>
+          </button>
+          <button class="preset" data-coins="7000000" data-usd="84700">
+            <b>🟠 7,000,000</b><span>$84,700.00</span>
+          </button>
+        </div>
+
+        <label class="field-label" for="coins">Custom coin amount</label>
+        <input id="coins" type="number" min="1" step="1" placeholder="Enter a custom number or amount">
+
+        <div class="summary">
+          <div><span>Coins</span><strong id="coinSummary">0</strong></div>
+          <div><span>Demo deducted amount</span><strong id="usdSummary">$0.00</strong></div>
+        </div>
+
+        <label class="check-row">
+          <input type="checkbox" id="agree">
+          <span>I understand this is a front-end demo. No real money or coins are transferred.</span>
+        </label>
+
+        <button id="exchangeBtn" class="exchange" disabled>Exchange</button>
+        <p class="fineprint">This demo is client-side only. It does not process payments, store financial information, or connect to a real coin service.</p>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card">
+      <div class="success-icon">✓</div>
+      <h2>Exchange Completed!</h2>
+      <p>You exchanged for <b id="modalCoins">0</b> Coins</p>
+      <div class="receipt">
+        <div><span>Recipient</span><b>@demo_user</b></div>
+        <div><span>Coins Exchanged</span><b id="modalCoins2">0 Coins</b></div>
+        <div><span>Demo Deducted Amount</span><b id="modalUsd">$0.00</b></div>
+        <div><span>Time</span><b id="modalTime">—</b></div>
+      </div>
+      <div class="demo-note">✓ Demo transaction only — nothing was actually transferred.</div>
+      <button id="closeModal" class="back">← Go back</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
